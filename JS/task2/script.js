@@ -155,6 +155,25 @@ for (let i = 0; i <= 20; i++){
 */
 
 
+// ========= 27-30
+// let abc = [ 'a', 'b', 'c']
+// let str = ''
+// for (let i = 0; i < abc.length; i++){
+//     str += abc[i]
+// }
+// console.log(str);
+// let i1 = 0
+// while(i1 < abc.length){
+//     str += abc[i1]
+//     i1++
+// }
+// console.log(str);
+// for (value of abc){
+//     str += value
+// }
+// console.log(str);
+
+
 // // ========= 37
 
 // let arr = [ 'a', 'b', 'c'];
