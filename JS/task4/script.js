@@ -127,11 +127,13 @@ let arr = [3, 8, 0, 5]
 
 
 // ========= 19
-// function arrI (arr, i){
-//     arr[i] = ++i
-// }
-// arrI(arr, 1)
-// console.log(arr);
+function arrI (arr, i){
+    let num = arr[i+1]
+    arr[i+1] = arr[i]
+    arr[i] = num
+}
+arrI(arr, 2)
+console.log(arr);
 
 
 // ======== 20
@@ -180,19 +182,19 @@ let arr = [3, 8, 0, 5]
 
 
 // ========= 90
-let n = 1024
-let step2 = 1
-for(let i = 2; i <= 999999; i *= 2){
-    step2 = i
-    if (n == step2){
-        break
-    }
-}
-if(n === step2){
-    console.log('YES');
-} else {
-    console.log('NO');
-}
+// let n = 1024
+// let step2 = 1
+// for(let i = 2; i <= 999999; i *= 2){
+//     step2 = i
+//     if (n == step2){
+//         break
+//     }
+// }
+// if(n === step2){
+//     console.log('YES');
+// } else {
+//     console.log('NO');
+// }
 
 
 
