@@ -6,10 +6,7 @@ const users = require('../dataBase/users.json');
 const usersPath = path.join('.', 'dataBase', 'users.json');
 
 module.exports = {
-    findUsers: () => {
-
-           return users
-    },
+    findUsers: () => users,
 
     findUserByName: (userName) => {
         for(let i = 0; i < users.length; i++){
