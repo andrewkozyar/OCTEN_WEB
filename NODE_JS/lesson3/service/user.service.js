@@ -13,7 +13,7 @@ module.exports = {
 
     findUserByName: (userName) => {
         for(let i = 0; i < users.length; i++){
-            if(userName == users[i].name || userName == users[i].email){
+            if(userName === users[i].name || userName === users[i].email){
                 return (users[i])
             }
         }

@@ -12,9 +12,6 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', apiRouter);
 
-
-
-
 app.listen(5000, () => {
     console.log('App listen 5000');
 });
