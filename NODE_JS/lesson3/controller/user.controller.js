@@ -36,7 +36,8 @@ module.exports = {
 
     deleteUser: (req, res) => {
         try {
-            userService.deleteUser(req.body);
+            const { userID } = req.params;
+            userService.deleteUser(userID);
 
             res.status(responseCodes.DELETED).json('user is deleted');
         } catch (e) {
