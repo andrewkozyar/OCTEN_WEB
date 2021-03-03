@@ -16,6 +16,7 @@ module.exports = {
     getSingleCar: async (req, res) => {
         try {
             const { carID } = req.params;
+
             const car = await carService.findSingleCar(carID);
 
             res.json(car);
@@ -37,6 +38,7 @@ module.exports = {
     deleteCar: async (req, res) => {
         try {
             const { carID } = req.params;
+
             await carService.deleteUser(carID);
 
             res.status(responseCodes.DELETED).json('car is deleted');

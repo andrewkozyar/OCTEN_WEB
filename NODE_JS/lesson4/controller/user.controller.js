@@ -16,6 +16,7 @@ module.exports = {
     getSingleUser: async (req, res) => {
         try {
             const { userID } = req.params;
+
             const user = await userService.findSingleUser(userID);
 
             res.json(user);
@@ -37,6 +38,7 @@ module.exports = {
     deleteUser: async (req, res) => {
         try {
             const { userID } = req.params;
+
             await userService.deleteUser(userID);
 
             res.status(responseCodes.DELETED).json('user is deleted');
