@@ -1,5 +1,7 @@
 const { userService } = require('../service');
-const { errorCodesEnum, responseCodesEnum, responseMessagesEnum: { userResponse } } = require('../constant');
+const {
+    errorCodesEnum, errorMessagesEnum, responseCodesEnum, responseMessagesEnum: { userResponse }
+} = require('../constant');
 const { passwordHasher } = require('../helper');
 
 module.exports = {
@@ -42,6 +44,10 @@ module.exports = {
     deleteUser: async (req, res) => {
         try {
             const { userID } = req.params;
+
+            if (userID !== req.user._id.toString()) {
+                throw new Error(errorMessagesEnum.unauthorized);
+            }
 
             await userService.deleteUser(userID);
 
