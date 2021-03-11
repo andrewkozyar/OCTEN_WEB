@@ -3,12 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
+dotenv.config({ path: './.env' });
+
 const apiRouter = require('./router/api.router');
 const { MONGO_URL, PORT } = require('./config/config');
 
 const app = express();
-
-dotenv.config();
 
 _connectDB();
 
