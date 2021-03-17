@@ -5,9 +5,9 @@ const { carMiddleware, fileMiddleware } = require('../middleware');
 
 router.get('/', carController.getAllCars);
 
-router.get('/:carID', carMiddleware.isCarIDValid, carController.getSingleCar);
-
 router.post('/', carMiddleware.isCarValid, fileMiddleware.checkFileMiddleware, carController.createCar);
+
+router.get('/:carID', carMiddleware.isCarIDValid, carController.getSingleCar);
 
 router.delete('/:carID', carMiddleware.isCarIDValid, carController.deleteCar);
 

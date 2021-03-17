@@ -5,8 +5,6 @@ const { authMiddleware, fileMiddleware, userMiddleware } = require('../middlewar
 
 router.get('/', userController.getAllUsers);
 
-router.get('/:userID', userMiddleware.isUserIDValid, userController.getSingleUser);
-
 router.post(
     '/',
     userMiddleware.isUserEmailRepeated,
@@ -15,6 +13,8 @@ router.post(
     fileMiddleware.checkAvatar,
     userController.createUser
 );
+
+router.get('/:userID', userMiddleware.isUserIDValid, userController.getSingleUser);
 
 router.delete('/:userID', authMiddleware.checkAccessTokenMiddleware, userMiddleware.isUserIDValid, userController.deleteUser);
 

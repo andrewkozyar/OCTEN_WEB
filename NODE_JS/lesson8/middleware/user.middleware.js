@@ -1,6 +1,6 @@
-const { errorCodesEnum, errorMessagesEnum } = require('../constant');
+const { errorMessagesEnum } = require('../constant');
 const { idValidator, userValidators } = require('../validator');
-const { userService: { findUsers } } = require('../service');
+const { userService: { findByEmail } } = require('../service');
 
 module.exports = {
     isUserIDValid: async (req, res, next) => {
@@ -15,7 +15,7 @@ module.exports = {
 
             next();
         } catch (e) {
-            res.status(errorCodesEnum.BAD_REQUEST).json(e.message);
+            next(e);
         }
     },
 
@@ -29,24 +29,23 @@ module.exports = {
 
             next();
         } catch (e) {
-            res.status(errorCodesEnum.BAD_REQUEST).json(e.message);
+            next(e);
         }
     },
 
     isUserEmailRepeated: async (req, res, next) => {
         try {
-            const users = await findUsers();
             const { email } = req.body;
 
-            for (const value of users) {
-                if (value.email === email) {
-                    throw new Error(errorMessagesEnum.emailIsRepeated);
-                }
+            const user = await findByEmail({ email });
+
+            if (user.email === email) {
+                throw new Error(errorMessagesEnum.emailIsRepeated);
             }
 
             next();
         } catch (e) {
-            res.status(errorCodesEnum.BAD_REQUEST).json(e.message);
+            next(e);
         }
     }
 };

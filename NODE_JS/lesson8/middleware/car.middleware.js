@@ -1,4 +1,3 @@
-const { errorCodesEnum } = require('../constant');
 const { idValidator, carValidators } = require('../validator');
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
 
             next();
         } catch (e) {
-            res.status(errorCodesEnum.BAD_REQUEST).json(e.message);
+            next(e);
         }
     },
 
@@ -28,7 +27,7 @@ module.exports = {
 
             next();
         } catch (e) {
-            res.status(errorCodesEnum.BAD_REQUEST).json(e.message);
+            next(e);
         }
     }
 };

@@ -4,6 +4,8 @@ require('../dataBase/models/Car');
 module.exports = {
     findUsers: () => userModel.find(),
 
+    findByEmail: (email) => userModel.findOne(email),
+
     findSingleUser: (userID) => userModel.findById(userID),
 
     createUser: (userObject) => userModel.create(userObject),
